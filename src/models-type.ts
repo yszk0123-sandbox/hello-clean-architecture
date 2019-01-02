@@ -1,18 +1,13 @@
 import { IType } from 'mobx-state-tree';
+import { IListEntity, IListItemEntity } from './entity-type';
 
 export interface IModel<M> extends IType<any, any, M> {}
 
-export interface IItemModel {
-  id: string;
-  title: string;
-  done: boolean;
-}
+export interface IListItemModel extends IListItemEntity {}
 
-export interface IListModel {
-  items: Array<IItemModel>;
+export interface IListModel extends IListEntity {
   addItem(title: string): void;
-  fetch(): Promise<void>;
-  count: number;
+  fetch(): Promise<unknown>;
 }
 
 export interface IAppModel {

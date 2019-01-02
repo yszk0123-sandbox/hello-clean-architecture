@@ -1,27 +1,21 @@
 import { flow, types } from 'mobx-state-tree';
-import { IAppModel, IItemModel, IListModel, IModel } from './models-type';
+import { AppDependencies, getDependencies } from './di';
+import { createListItemEntity } from './entities';
+import { IAppModel, IListItemModel, IListModel, IModel } from './models-type';
 
-const Item: IModel<IItemModel> = types.model({
+const ListItem: IModel<IListItemModel> = types.model({
   id: types.string,
   title: types.string,
   done: types.boolean,
 });
 
-function generateId(): string {
-  return String(Math.floor(Math.random() * 1000000));
-}
-
-function createItem(title: string): IItemModel {
-  return Item.create({ id: generateId(), title, done: false });
-}
-
-async function fetch() {
-  return [createItem('a')];
+export function createListItem(title: string): IListItemModel {
+  return ListItem.create(createListItemEntity(title));
 }
 
 const ListModel: IModel<IListModel> = types
   .model({
-    items: types.array(Item),
+    items: types.array(ListItem),
   })
   .views(self => ({
     get count() {
@@ -30,15 +24,17 @@ const ListModel: IModel<IListModel> = types
   }))
   .actions(self => ({
     fetch: flow(function*() {
+      const { usecases } = getDependencies(self);
+
       self.items.clear();
       try {
-        self.items = yield fetch();
+        self.items = yield usecases.fetchListItems({});
       } catch (error) {
         console.error('Error', error);
       }
     }),
     addItem(title: string) {
-      const newItem = createItem(title);
+      const newItem = createListItem(title);
       self.items.push(newItem);
     },
   }));
@@ -47,7 +43,7 @@ const AppModel: IModel<IAppModel> = types.model('Store', {
   list: ListModel,
 });
 
-export function createApp(): IAppModel {
-  const app = AppModel.create({ list: ListModel.create() });
+export function createApp(dependencies: AppDependencies): IAppModel {
+  const app = AppModel.create({ list: ListModel.create() }, dependencies);
   return app;
 }

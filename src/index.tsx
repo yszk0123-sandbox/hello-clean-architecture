@@ -1,8 +1,10 @@
 import { observer } from 'mobx-react';
 import React from 'react';
 import { render } from 'react-dom';
+import { AppDependencies } from './di';
 import { createApp } from './models';
 import { IAppModel } from './models-type';
+import { fetchListItems } from './usecases';
 
 const App = observer(({ list }: IAppModel) => {
   const onClick = () => list.addItem('new');
@@ -21,7 +23,12 @@ const App = observer(({ list }: IAppModel) => {
 });
 
 async function main() {
-  const app = createApp();
+  const dependencies: AppDependencies = {
+    usecases: {
+      fetchListItems,
+    },
+  };
+  const app = createApp(dependencies);
   render(<App list={app.list} />, document.getElementById('app'));
 }
 
