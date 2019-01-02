@@ -1,5 +1,5 @@
 import { IType } from 'mobx-state-tree';
-import { IListEntity, IListItemEntity } from './entity-type';
+import { IListEntity, IListItemEntity } from './entities-type';
 
 export interface IModel<M> extends IType<any, any, M> {}
 

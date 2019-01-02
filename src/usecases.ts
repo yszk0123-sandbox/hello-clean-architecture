@@ -1,5 +1,5 @@
 import { createListItemEntity } from './entities';
-import { IListItemEntity } from './entity-type';
+import { IListItemEntity } from './entities-type';
 
 export async function fetchListItems() {
   return [
