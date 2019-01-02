@@ -7,7 +7,7 @@ import 'setimmediate';
 import { AppDependencies } from './di';
 import { createApp } from './models';
 import { IAppModel } from './models-type';
-import { fetchListItems } from './usecases';
+import { addListItem, fetchListItems } from './usecases';
 
 const App = observer(({ list }: IAppModel) => {
   const onClick = () => list.addItem('new');
@@ -28,6 +28,7 @@ const App = observer(({ list }: IAppModel) => {
 async function main() {
   const dependencies: AppDependencies = {
     usecases: {
+      addListItem,
       fetchListItems,
     },
   };

@@ -33,10 +33,12 @@ const ListModel: IModel<IListModel> = types
         console.error('Error', error);
       }
     }),
-    addItem(title: string) {
-      const newItem = createListItem(title);
+    addItem: flow(function*(title: string) {
+      const { usecases } = getDependencies(self);
+
+      const newItem = yield usecases.addListItem({ title });
       self.items.push(newItem);
-    },
+    }),
   }));
 
 const AppModel: IModel<IAppModel> = types.model('Store', {

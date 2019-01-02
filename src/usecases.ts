@@ -1,4 +1,5 @@
 import { createListItemEntity } from './entities';
+import { IListItemEntity } from './entity-type';
 
 export async function fetchListItems() {
   return [
@@ -6,4 +7,11 @@ export async function fetchListItems() {
     createListItemEntity('b'),
     createListItemEntity('c'),
   ];
+}
+
+export async function addListItem(input: {
+  title: string;
+}): Promise<IListItemEntity> {
+  // TODO: Persist data
+  return createListItemEntity(input.title);
 }
