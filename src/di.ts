@@ -1,12 +1,5 @@
 import { getEnv, IAnyStateTreeNode } from 'mobx-state-tree';
-
-type Usecase<Input, Output> = (input: Input) => Output;
-
-interface FetchListItemsUsecase extends Usecase<{}, {}> {}
-
-interface Usecases {
-  fetchListItems: FetchListItemsUsecase;
-}
+import { Usecases } from './usecases-type';
 
 export interface AppDependencies {
   usecases: Usecases;
