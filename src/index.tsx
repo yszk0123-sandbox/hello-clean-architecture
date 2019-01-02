@@ -1,7 +1,8 @@
 import { observer } from 'mobx-react';
 import React from 'react';
 import { render } from 'react-dom';
-import { createApp, IAppModel } from './models';
+import { createApp } from './models';
+import { IAppModel } from './models-type';
 
 const App = observer(({ list }: IAppModel) => {
   const onClick = () => list.addItem('new');

@@ -1,12 +1,5 @@
-import { flow, IType, types } from 'mobx-state-tree';
-
-interface IModel<M> extends IType<any, any, M> {}
-
-interface IItemModel {
-  id: string;
-  title: string;
-  done: boolean;
-}
+import { flow, types } from 'mobx-state-tree';
+import { IAppModel, IItemModel, IListModel, IModel } from './models-type';
 
 const Item: IModel<IItemModel> = types.model({
   id: types.string,
@@ -24,13 +17,6 @@ function createItem(title: string): IItemModel {
 
 async function fetch() {
   return [createItem('a')];
-}
-
-export interface IListModel {
-  items: Array<IItemModel>;
-  addItem(title: string): void;
-  fetch(): Promise<void>;
-  count: number;
 }
 
 const ListModel: IModel<IListModel> = types
@@ -56,10 +42,6 @@ const ListModel: IModel<IListModel> = types
       self.items.push(newItem);
     },
   }));
-
-export interface IAppModel {
-  list: IListModel;
-}
 
 const AppModel: IModel<IAppModel> = types.model('Store', {
   list: ListModel,
