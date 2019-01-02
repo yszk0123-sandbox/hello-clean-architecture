@@ -1,18 +1,24 @@
-import { flow, Instance, types } from 'mobx-state-tree';
+import { flow, IType, types } from 'mobx-state-tree';
 
-const Item = types.model({
+interface IModel<M> extends IType<any, any, M> {}
+
+interface IItemModel {
+  id: string;
+  title: string;
+  done: boolean;
+}
+
+const Item: IModel<IItemModel> = types.model({
   id: types.string,
   title: types.string,
   done: types.boolean,
 });
 
-export interface IItem extends Instance<typeof Item> {}
-
 function generateId(): string {
   return String(Math.floor(Math.random() * 1000000));
 }
 
-function createItem(title: string): IItem {
+function createItem(title: string): IItemModel {
   return Item.create({ id: generateId(), title, done: false });
 }
 
@@ -20,7 +26,14 @@ async function fetch() {
   return [createItem('a')];
 }
 
-const ListModel = types
+export interface IListModel {
+  items: Array<IItemModel>;
+  addItem(title: string): void;
+  fetch(): Promise<void>;
+  count: number;
+}
+
+const ListModel: IModel<IListModel> = types
   .model({
     items: types.array(Item),
   })
@@ -44,13 +57,13 @@ const ListModel = types
     },
   }));
 
-export interface IListModel extends Instance<typeof ListModel> {}
+export interface IAppModel {
+  list: IListModel;
+}
 
-const AppModel = types.model('Store', {
+const AppModel: IModel<IAppModel> = types.model('Store', {
   list: ListModel,
 });
-
-export interface IAppModel extends Instance<typeof AppModel> {}
 
 export function createApp(): IAppModel {
   const app = AppModel.create({ list: ListModel.create() });
