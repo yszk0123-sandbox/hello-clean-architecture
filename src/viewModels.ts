@@ -6,8 +6,8 @@ import {
   AppViewModel,
   ListItemViewModel,
   ListViewModel,
-  ViewModel,
 } from './viewModels-type';
+import { ViewModel } from './ViewModelType';
 
 const ListItem: ViewModel<ListItemViewModel> = types.model({
   id: types.string,

@@ -1,7 +1,4 @@
-import { IType } from 'mobx-state-tree';
 import { ListEntity, ListItemEntity } from './entities-type';
-
-export interface ViewModel<M> extends IType<any, any, M> {}
 
 export interface ListItemViewModel extends ListItemEntity {}
 
