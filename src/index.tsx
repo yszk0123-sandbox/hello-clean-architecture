@@ -8,9 +8,13 @@ import { AppContext } from './context-type';
 import { createAddListItem, createFetchListItems } from './useCases';
 import { AppUseCases } from './useCases-type';
 import { createApp } from './viewModels';
-import { AppViewModel } from './viewModels-type';
+import { ListViewModel } from './viewModels-type';
 
-const App = observer(({ list }: AppViewModel) => {
+interface Props {
+  list: ListViewModel;
+}
+
+const App = observer<React.FunctionComponent<Props>>(({ list }) => {
   const onClick = () => list.addItem('new');
 
   return (
