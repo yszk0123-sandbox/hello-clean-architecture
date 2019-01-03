@@ -1,5 +1,5 @@
-import { Usecases } from './usecases-type';
+import { UseCases } from './useCases-type';
 
 export interface AppContext {
-  usecases: Usecases;
+  useCases: UseCases;
 }
