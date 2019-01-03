@@ -35,8 +35,10 @@ async function main() {
     useCases,
   };
   const app = createApp(context);
-  await app.list.fetch();
+
   render(<App list={app.list} />, document.getElementById('app'));
+
+  await app.list.fetch();
 }
 
 main().catch(console.error);
