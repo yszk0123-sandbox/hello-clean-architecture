@@ -1,9 +1,9 @@
 import { ListItemEntity } from './entities-type';
 import { UseCase } from './type';
 
-interface FetchListItemsUseCase extends UseCase<{}, {}> {}
+export interface FetchListItemsUseCase extends UseCase<{}, {}> {}
 
-interface AddListItemUseCase
+export interface AddListItemUseCase
   extends UseCase<{ title: string }, ListItemEntity> {}
 
 interface ListItemUseCases {
@@ -11,4 +11,4 @@ interface ListItemUseCases {
   fetchListItems: FetchListItemsUseCase;
 }
 
-export interface UseCases extends ListItemUseCases {}
+export interface AppUseCases extends ListItemUseCases {}
