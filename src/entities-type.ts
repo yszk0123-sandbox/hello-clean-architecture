@@ -1,10 +1,10 @@
-export interface IListItemEntity {
+export interface ListItemEntity {
   id: string;
   title: string;
   done: boolean;
 }
 
-export interface IListEntity {
-  items: Array<IListItemEntity>;
+export interface ListEntity {
+  items: Array<ListItemEntity>;
   count: number;
 }

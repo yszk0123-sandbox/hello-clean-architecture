@@ -7,9 +7,9 @@ import 'setimmediate';
 import { AppContext } from './context-type';
 import { addListItem, fetchListItems } from './useCases';
 import { createApp } from './viewModels';
-import { IAppViewModel } from './viewModels-type';
+import { AppViewModel } from './viewModels-type';
 
-const App = observer(({ list }: IAppViewModel) => {
+const App = observer(({ list }: AppViewModel) => {
   const onClick = () => list.addItem('new');
 
   return (
