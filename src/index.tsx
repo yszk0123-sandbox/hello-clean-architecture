@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 // FIXME: Remove this polyfill
 // mobx-state-tree depends on setImmediate which is not implemented in browsers...
 import 'setimmediate';
-import { AppContext } from './context';
+import { AppContext } from './context-type';
 import { addListItem, fetchListItems } from './usecases';
 import { createApp } from './viewModels';
 import { IAppViewModel } from './viewModels-type';

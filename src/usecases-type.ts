@@ -7,7 +7,9 @@ interface FetchListItemsUsecase extends Usecase<{}, {}> {}
 interface AddListItemUsecase
   extends Usecase<{ title: string }, IListItemEntity> {}
 
-export interface Usecases {
+interface ListItemUsecases {
   addListItem: AddListItemUsecase;
   fetchListItems: FetchListItemsUsecase;
 }
+
+export interface Usecases extends ListItemUsecases {}

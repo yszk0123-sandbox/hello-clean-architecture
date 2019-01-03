@@ -1,9 +1,5 @@
 import { getEnv, IAnyStateTreeNode } from 'mobx-state-tree';
-import { Usecases } from './usecases-type';
-
-export interface AppContext {
-  usecases: Usecases;
-}
+import { AppContext } from './context-type';
 
 export function getAppContext(node: IAnyStateTreeNode): AppContext {
   return getEnv(node);
