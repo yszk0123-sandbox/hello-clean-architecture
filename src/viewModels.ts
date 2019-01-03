@@ -1,19 +1,24 @@
 import { flow, types } from 'mobx-state-tree';
 import { AppContext, getAppContext } from './context';
 import { createListItemEntity } from './entities';
-import { IAppModel, IListItemModel, IListModel, IModel } from './models-type';
+import {
+  IAppViewModel,
+  IListItemViewModel,
+  IListViewModel,
+  IViewModel,
+} from './viewModels-type';
 
-const ListItem: IModel<IListItemModel> = types.model({
+const ListItem: IViewModel<IListItemViewModel> = types.model({
   id: types.string,
   title: types.string,
   done: types.boolean,
 });
 
-export function createListItem(title: string): IListItemModel {
+export function createListItem(title: string): IListItemViewModel {
   return ListItem.create(createListItemEntity(title));
 }
 
-const ListModel: IModel<IListModel> = types
+const ListViewModel: IViewModel<IListViewModel> = types
   .model({
     items: types.array(ListItem),
   })
@@ -41,11 +46,11 @@ const ListModel: IModel<IListModel> = types
     }),
   }));
 
-const AppModel: IModel<IAppModel> = types.model('Store', {
-  list: ListModel,
+const AppViewModel: IViewModel<IAppViewModel> = types.model('Store', {
+  list: ListViewModel,
 });
 
-export function createApp(context: AppContext): IAppModel {
-  const app = AppModel.create({ list: ListModel.create() }, context);
+export function createApp(context: AppContext): IAppViewModel {
+  const app = AppViewModel.create({ list: ListViewModel.create() }, context);
   return app;
 }
