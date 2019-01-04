@@ -1,22 +1,26 @@
 import { createListItemEntity } from './entities';
-import { ListItemEntity } from './entities-type';
-import { AddListItemUseCase, FetchListItemsUseCase } from './useCases-type';
+import {
+  AddListItemUseCase,
+  AddListItemUseCaseFactory,
+  FetchListItemsUseCase,
+  FetchListItemsUseCaseFactory,
+} from './useCases-type';
 
-export function createFetchListItems(): FetchListItemsUseCase {
-  return async function fetchListItems() {
+export const createFetchListItems: FetchListItemsUseCaseFactory = _context => {
+  const fetchListItems: FetchListItemsUseCase = async _input => {
     return [
       createListItemEntity('a'),
       createListItemEntity('b'),
       createListItemEntity('c'),
     ];
   };
-}
+  return fetchListItems;
+};
 
-export function createAddListItem(): AddListItemUseCase {
-  return async function addListItem(input: {
-    title: string;
-  }): Promise<ListItemEntity> {
+export const createAddListItem: AddListItemUseCaseFactory = _context => {
+  const addListItem: AddListItemUseCase = async input => {
     // TODO: Persist data
     return createListItemEntity(input.title);
   };
-}
+  return addListItem;
+};

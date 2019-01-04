@@ -32,8 +32,8 @@ const App = observer<React.FunctionComponent<Props>>(({ list }) => {
 
 async function main() {
   const useCases: AppUseCases = {
-    addListItem: createAddListItem(),
-    fetchListItems: createFetchListItems(),
+    addListItem: createAddListItem({}),
+    fetchListItems: createFetchListItems({}),
   };
   const context: AppContext = {
     useCases,
