@@ -10,9 +10,9 @@ import {
 import { ViewModel } from './ViewModelType';
 
 const ListItem: ViewModel<ListItemViewModel> = types.model({
+  done: types.boolean,
   id: types.string,
   title: types.string,
-  done: types.boolean,
 });
 
 export function createListItem(title: string): ListItemViewModel {
@@ -29,6 +29,12 @@ const ListViewModel: ViewModel<ListViewModel> = types
     },
   }))
   .actions(self => ({
+    addItem: flow(function*(title: string) {
+      const { useCases } = getAppContext(self);
+
+      const newItem = yield useCases.addListItem({ title });
+      self.items.push(newItem);
+    }),
     fetch: flow(function*() {
       const { useCases } = getAppContext(self);
 
@@ -36,14 +42,9 @@ const ListViewModel: ViewModel<ListViewModel> = types
       try {
         self.items = yield useCases.fetchListItems({});
       } catch (error) {
+        // tslint:disable-next-line:no-console
         console.error('Error', error);
       }
-    }),
-    addItem: flow(function*(title: string) {
-      const { useCases } = getAppContext(self);
-
-      const newItem = yield useCases.addListItem({ title });
-      self.items.push(newItem);
     }),
   }));
 

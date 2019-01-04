@@ -45,4 +45,5 @@ async function main() {
   await app.list.fetch();
 }
 
+// tslint:disable-next-line:no-console
 main().catch(console.error);
