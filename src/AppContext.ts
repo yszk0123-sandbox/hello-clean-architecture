@@ -1,5 +1,11 @@
 import { getEnv, IAnyStateTreeNode } from 'mobx-state-tree';
-import { AppUseCases } from './AppUseCases';
+import { AddListItemUseCase } from './useCases/AddListItemUseCase';
+import { FetchListUseCase } from './useCases/FetchListUseCase';
+
+export interface AppUseCases {
+  addListItem: AddListItemUseCase;
+  fetchList: FetchListUseCase;
+}
 
 export interface AppContext {
   useCases: AppUseCases;
