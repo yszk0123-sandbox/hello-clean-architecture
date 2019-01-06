@@ -1,6 +1,4 @@
-import { ListEntity, ListItemEntity } from './entities-type';
-
-export interface ListItemViewModel extends ListItemEntity {}
+import { ListEntity } from '../entities-type';
 
 export interface ListViewModel extends ListEntity {
   addItem(title: string): void;

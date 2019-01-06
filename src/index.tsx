@@ -7,8 +7,8 @@ import 'setimmediate';
 import { AppContext } from './context-type';
 import { createAddListItem, createFetchListItems } from './useCases';
 import { AppUseCases } from './useCases-type';
-import { createApp } from './viewModels';
-import { ListViewModel } from './viewModels-type';
+import { createApp } from './viewModels/AppViewModel';
+import { ListViewModel } from './viewModels/ListViewModel-type';
 
 interface Props {
   list: ListViewModel;
