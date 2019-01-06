@@ -8,7 +8,7 @@ import { AppContext } from './context';
 import { createAddListItem } from './useCases/AddListItemUseCaseFactory';
 import { AppUseCases } from './useCases/AppUseCases';
 import { createFetchListItems } from './useCases/FetchListItemsUseCaseFactory';
-import { createApp } from './viewModels/AppViewModelImpl';
+import { createAppViewModel } from './viewModels/AppViewModelImpl';
 import { ListViewModel } from './viewModels/ListViewModel';
 
 interface Props {
@@ -39,7 +39,7 @@ async function main() {
   const context: AppContext = {
     useCases,
   };
-  const app = createApp(context);
+  const app = createAppViewModel(context);
 
   render(<App list={app.list} />, document.getElementById('app'));
 

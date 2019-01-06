@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree';
-import { createListItemEntity } from '../entities/ListItemEntity';
+import { createListItem } from '../entities/ListItem';
 import { ListItemViewModel } from './ListItemViewModel';
 
 export const ListItemViewModelImpl = types.model({
@@ -8,6 +8,6 @@ export const ListItemViewModelImpl = types.model({
   title: types.string,
 });
 
-export function createListItem(title: string): ListItemViewModel {
-  return ListItemViewModelImpl.create(createListItemEntity(title));
+export function createListItemViewModel(title: string): ListItemViewModel {
+  return ListItemViewModelImpl.create(createListItem(title));
 }

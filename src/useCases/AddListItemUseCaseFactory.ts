@@ -1,4 +1,4 @@
-import { createListItemEntity } from '../entities/ListItemEntity';
+import { createListItem } from '../entities/ListItem';
 import {
   AddListItemUseCase,
   AddListItemUseCaseFactory,
@@ -7,7 +7,7 @@ import {
 export const createAddListItem: AddListItemUseCaseFactory = _context => {
   const addListItem: AddListItemUseCase = async input => {
     // TODO: Persist data
-    return createListItemEntity(input.title);
+    return createListItem(input.title);
   };
   return addListItem;
 };

@@ -32,6 +32,6 @@ export const ListViewModelImpl = types
     }),
   }));
 
-export function createList(): ListViewModel {
+export function createListViewModel(): ListViewModel {
   return ListViewModelImpl.create();
 }

@@ -1,13 +1,13 @@
 import { types } from 'mobx-state-tree';
 import { AppContext } from '../context';
 import { AppViewModel } from './AppViewModel';
-import { createList, ListViewModelImpl } from './ListViewModelImpl';
+import { createListViewModel, ListViewModelImpl } from './ListViewModelImpl';
 
 const AppViewModelImpl = types.model('Store', {
   list: ListViewModelImpl,
 });
 
-export function createApp(context: AppContext): AppViewModel {
-  const app = AppViewModelImpl.create({ list: createList() }, context);
+export function createAppViewModel(context: AppContext): AppViewModel {
+  const app = AppViewModelImpl.create({ list: createListViewModel() }, context);
   return app;
 }
