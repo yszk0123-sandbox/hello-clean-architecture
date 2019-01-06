@@ -8,7 +8,7 @@ import { AppContext } from './context';
 import { createAddListItem } from './useCases/AddListItemUseCaseFactory';
 import { AppUseCases } from './useCases/AppUseCases';
 import { createFetchListItems } from './useCases/FetchListItemsUseCaseFactory';
-import { createAppViewModel } from './viewModels/AppViewModelImpl';
+import { createAppViewModel } from './viewModels/AppViewModelFactory';
 import { ListViewModel } from './viewModels/ListViewModel';
 
 interface Props {

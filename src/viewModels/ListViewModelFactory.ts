@@ -1,6 +1,6 @@
 import { flow, types } from 'mobx-state-tree';
 import { getAppContext } from '../context';
-import { ListItemViewModelImpl } from './ListItemViewModelImpl';
+import { ListItemViewModelImpl } from './ListItemViewModelFactory';
 import { ListViewModel } from './ListViewModel';
 
 export const ListViewModelImpl = types
