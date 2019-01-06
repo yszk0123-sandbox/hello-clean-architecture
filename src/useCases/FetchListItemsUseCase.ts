@@ -1,16 +1,9 @@
-import { createListItemEntity } from '../entities/ListItemEntity';
-import {
-  FetchListItemsUseCase,
-  FetchListItemsUseCaseFactory,
-} from './FetchListItemsUseCase-type';
+import { UseCase, UseCaseFactory } from '../type';
 
-export const createFetchListItems: FetchListItemsUseCaseFactory = _context => {
-  const fetchListItems: FetchListItemsUseCase = async _input => {
-    return [
-      createListItemEntity('a'),
-      createListItemEntity('b'),
-      createListItemEntity('c'),
-    ];
-  };
-  return fetchListItems;
-};
+export interface FetchListItemsInput {}
+export interface FetchListItemsOutput {}
+export interface FetchListItemsUseCase
+  extends UseCase<FetchListItemsInput, FetchListItemsOutput> {}
+export interface FetchListItemsContext {}
+export interface FetchListItemsUseCaseFactory
+  extends UseCaseFactory<FetchListItemsUseCase, FetchListItemsContext> {}

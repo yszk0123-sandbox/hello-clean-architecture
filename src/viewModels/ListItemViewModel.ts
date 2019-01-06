@@ -1,13 +1,3 @@
-import { types } from 'mobx-state-tree';
-import { createListItemEntity } from '../entities/ListItemEntity';
-import { ListItemViewModel } from './ListItemViewModel-type';
+import { ListItemEntity } from '../entities/ListItemEntity';
 
-export const ListItemViewModelImpl = types.model({
-  done: types.boolean,
-  id: types.string,
-  title: types.string,
-});
-
-export function createListItem(title: string): ListItemViewModel {
-  return ListItemViewModelImpl.create(createListItemEntity(title));
-}
+export interface ListItemViewModel extends ListItemEntity {}

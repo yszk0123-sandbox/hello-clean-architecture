@@ -5,11 +5,11 @@ import { render } from 'react-dom';
 // mobx-state-tree depends on setImmediate which is not implemented in browsers...
 import 'setimmediate';
 import { AppContext } from './context';
-import { createAddListItem } from './useCases/AddListItemUseCase';
-import { AppUseCases } from './useCases/AppUseCase-type';
-import { createFetchListItems } from './useCases/FetchListItemsUseCase';
-import { createApp } from './viewModels/AppViewModel';
-import { ListViewModel } from './viewModels/ListViewModel-type';
+import { createAddListItem } from './useCases/AddListItemUseCaseFactory';
+import { AppUseCases } from './useCases/AppUseCases';
+import { createFetchListItems } from './useCases/FetchListItemsUseCaseFactory';
+import { createApp } from './viewModels/AppViewModelImpl';
+import { ListViewModel } from './viewModels/ListViewModel';
 
 interface Props {
   list: ListViewModel;

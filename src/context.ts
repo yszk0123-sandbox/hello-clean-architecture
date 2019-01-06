@@ -1,6 +1,6 @@
 import { getEnv, IAnyStateTreeNode } from 'mobx-state-tree';
 import { AppContext } from './context';
-import { AppUseCases } from './useCases/AppUseCase-type';
+import { AppUseCases } from './useCases/AppUseCases';
 
 export interface AppContext {
   useCases: AppUseCases;

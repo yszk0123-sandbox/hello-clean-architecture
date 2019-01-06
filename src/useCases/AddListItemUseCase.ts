@@ -1,13 +1,16 @@
-import { createListItemEntity } from '../entities/ListItemEntity';
-import {
-  AddListItemUseCase,
-  AddListItemUseCaseFactory,
-} from './AddListItemUseCase-type';
+import { ListItemEntity } from '../entities/ListItemEntity';
+import { UseCase, UseCaseFactory } from '../type';
 
-export const createAddListItem: AddListItemUseCaseFactory = _context => {
-  const addListItem: AddListItemUseCase = async input => {
-    // TODO: Persist data
-    return createListItemEntity(input.title);
-  };
-  return addListItem;
-};
+export interface AddListItemInput {
+  title: string;
+}
+
+export interface AddListItemOutput extends ListItemEntity {}
+
+export interface AddListItemUseCase
+  extends UseCase<AddListItemInput, AddListItemOutput> {}
+
+export interface AddListItemContext {}
+
+export interface AddListItemUseCaseFactory
+  extends UseCaseFactory<AddListItemUseCase, AddListItemContext> {}
