@@ -1,5 +1,5 @@
 import { List } from '../entities/List';
 
-export interface ListDataAccess {
+export interface ListDataAccessInterface {
   fetch(): Promise<List>;
 }

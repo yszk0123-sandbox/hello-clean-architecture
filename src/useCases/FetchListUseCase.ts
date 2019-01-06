@@ -1,4 +1,4 @@
-import { ListDataAccess } from '../dataAccesses/ListDataAccess';
+import { ListDataAccessInterface } from '../dataAccesses/ListDataAccessInterface';
 import { UseCase, UseCaseFactory } from '../type';
 
 export interface FetchListInput {}
@@ -9,7 +9,7 @@ export interface FetchListUseCase
   extends UseCase<FetchListInput, FetchListOutput> {}
 
 export interface FetchListContext {
-  listDataAccess: ListDataAccess;
+  listDataAccess: ListDataAccessInterface;
 }
 
 export interface FetchListUseCaseFactory
