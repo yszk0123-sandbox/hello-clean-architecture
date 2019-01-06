@@ -6,6 +6,7 @@ import { render } from 'react-dom';
 import 'setimmediate';
 import { AppContext, AppUseCases } from './AppContext';
 import { createAppViewModel } from './AppViewModelFactory';
+import { List } from './components/List';
 import { ListFireStoreDataAccess } from './dataAccesses/firestore/ListFirestoreDataAccess';
 import { ListDataAccessInterface } from './dataAccesses/ListDataAccessInterface';
 import { createAddListItem } from './useCases/AddListItemUseCase';
@@ -19,17 +20,7 @@ interface Props {
 const App = observer<React.FunctionComponent<Props>>(({ list }) => {
   const onClick = () => list.addItem('new');
 
-  return (
-    <div>
-      There are {list.count} items!
-      <ul>
-        {list.items.map(item => (
-          <li key={item.id}>{item.title}</li>
-        ))}
-      </ul>
-      <button onClick={onClick}>Add</button>
-    </div>
-  );
+  return <List count={list.count} items={list.items} onClick={onClick} />;
 });
 
 async function main() {
