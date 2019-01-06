@@ -1,7 +1,7 @@
 import { AddListItemUseCase } from './AddListItemUseCase';
-import { FetchListItemsUseCase } from './FetchListItemsUseCase';
+import { FetchListUseCase } from './FetchListUseCase';
 
 export interface AppUseCases {
   addListItem: AddListItemUseCase;
-  fetchListItems: FetchListItemsUseCase;
+  fetchList: FetchListUseCase;
 }

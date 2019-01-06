@@ -24,7 +24,7 @@ export const ListViewModelImpl = types
 
       self.items.clear();
       try {
-        self.items = yield useCases.fetchListItems({});
+        self.items = yield useCases.fetchList({});
       } catch (error) {
         // tslint:disable-next-line:no-console
         console.error('Error', error);

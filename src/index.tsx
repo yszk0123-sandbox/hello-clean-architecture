@@ -7,7 +7,7 @@ import 'setimmediate';
 import { AppContext } from './context';
 import { createAddListItem } from './useCases/AddListItemUseCaseFactory';
 import { AppUseCases } from './useCases/AppUseCases';
-import { createFetchListItems } from './useCases/FetchListItemsUseCaseFactory';
+import { createFetchList } from './useCases/FetchListUseCaseFactory';
 import { createAppViewModel } from './viewModels/AppViewModelFactory';
 import { ListViewModel } from './viewModels/ListViewModel';
 
@@ -34,7 +34,7 @@ const App = observer<React.FunctionComponent<Props>>(({ list }) => {
 async function main() {
   const useCases: AppUseCases = {
     addListItem: createAddListItem({}),
-    fetchListItems: createFetchListItems({}),
+    fetchList: createFetchList({}),
   };
   const context: AppContext = {
     useCases,
