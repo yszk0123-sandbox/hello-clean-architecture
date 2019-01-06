@@ -9,8 +9,8 @@ import { AppUseCases } from './AppUseCases';
 import { createAppViewModel } from './AppViewModelFactory';
 import { ListFireStoreDataAccess } from './dataAccesses/firestore/ListFirestoreDataAccess';
 import { ListDataAccessInterface } from './dataAccesses/ListDataAccessInterface';
-import { createAddListItem } from './useCases/AddListItemUseCaseFactory';
-import { createFetchList } from './useCases/FetchListUseCaseFactory';
+import { createAddListItem } from './useCases/AddListItemUseCase';
+import { createFetchList } from './useCases/FetchListUseCase';
 import { ListViewModel } from './viewModels/ListViewModel';
 
 interface Props {

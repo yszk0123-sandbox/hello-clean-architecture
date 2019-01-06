@@ -1,5 +1,6 @@
 import { ListDataAccessInterface } from '../dataAccesses/ListDataAccessInterface';
 import { UseCase, UseCaseFactory } from '../type';
+import { FetchListUseCase, FetchListUseCaseFactory } from './FetchListUseCase';
 
 export interface FetchListInput {}
 
@@ -14,3 +15,12 @@ export interface FetchListContext {
 
 export interface FetchListUseCaseFactory
   extends UseCaseFactory<FetchListUseCase, FetchListContext> {}
+
+export const createFetchList: FetchListUseCaseFactory = ({
+  listDataAccess,
+}) => {
+  const fetchList: FetchListUseCase = async _input => {
+    return listDataAccess.fetch();
+  };
+  return fetchList;
+};
