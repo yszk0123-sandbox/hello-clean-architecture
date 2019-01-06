@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree';
-import { AppContext } from '../context-type';
+import { AppContext } from '../context';
 import { AppViewModel } from './AppViewModel-type';
 import { createList, ListViewModelImpl } from './ListViewModel';
 import { ViewModel } from './ViewModelType';
