@@ -1,4 +1,4 @@
-import { ListItemEntity } from './ListItemEntity-type';
+import { ListItemEntity } from './ListItemEntity';
 
 export interface ListEntity {
   items: Array<ListItemEntity>;

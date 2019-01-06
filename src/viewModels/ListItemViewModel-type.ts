@@ -1,3 +1,3 @@
-import { ListItemEntity } from '../entities/ListItemEntity-type';
+import { ListItemEntity } from '../entities/ListItemEntity';
 
 export interface ListItemViewModel extends ListItemEntity {}

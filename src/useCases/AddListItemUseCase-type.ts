@@ -1,4 +1,4 @@
-import { ListItemEntity } from '../entities/ListItemEntity-type';
+import { ListItemEntity } from '../entities/ListItemEntity';
 import { UseCase, UseCaseFactory } from '../type';
 
 export interface AddListItemInput {

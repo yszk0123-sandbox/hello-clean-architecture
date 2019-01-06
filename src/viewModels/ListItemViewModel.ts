@@ -1,9 +1,8 @@
 import { types } from 'mobx-state-tree';
 import { createListItemEntity } from '../entities/ListItemEntity';
 import { ListItemViewModel } from './ListItemViewModel-type';
-import { ViewModel } from './ViewModelType';
 
-export const ListItemViewModelImpl: ViewModel<ListItemViewModel> = types.model({
+export const ListItemViewModelImpl = types.model({
   done: types.boolean,
   id: types.string,
   title: types.string,
