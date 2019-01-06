@@ -1,5 +1,5 @@
 import { flow, types } from 'mobx-state-tree';
-import { getAppContext } from '../context';
+import { getAppContext } from '../AppContext';
 import { ListItemViewModelImpl } from './ListItemViewModelFactory';
 import { ListViewModel } from './ListViewModel';
 

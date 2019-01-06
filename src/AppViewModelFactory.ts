@@ -1,7 +1,10 @@
 import { types } from 'mobx-state-tree';
-import { AppContext } from '../context';
+import { AppContext } from './AppContext';
 import { AppViewModel } from './AppViewModel';
-import { createListViewModel, ListViewModelImpl } from './ListViewModelFactory';
+import {
+  createListViewModel,
+  ListViewModelImpl,
+} from './viewModels/ListViewModelFactory';
 
 const AppViewModelImpl = types.model('Store', {
   list: ListViewModelImpl,
