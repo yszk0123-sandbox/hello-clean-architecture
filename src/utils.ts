@@ -1,4 +1,6 @@
-import { Nullable, Undefinable } from './utils-type';
+export type Nullable<T> = T | null;
+
+export type Undefinable<T> = T | undefined;
 
 export function isNull<T>(value: Nullable<T>): value is null {
   return value === null;
