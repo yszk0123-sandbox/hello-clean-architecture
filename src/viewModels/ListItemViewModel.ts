@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree';
-import { createListItemEntity } from '../entities';
+import { createListItemEntity } from '../entities/ListItemEntity';
 import { ListItemViewModel } from './ListItemViewModel-type';
 import { ViewModel } from './ViewModelType';
 

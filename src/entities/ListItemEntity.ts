@@ -1,4 +1,4 @@
-import { ListItemEntity } from './entities-type';
+import { ListItemEntity } from './ListItemEntity-type';
 
 function generateId(): string {
   return String(Math.floor(Math.random() * 1000000));

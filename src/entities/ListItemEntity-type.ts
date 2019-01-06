@@ -3,8 +3,3 @@ export interface ListItemEntity {
   title: string;
   done: boolean;
 }
-
-export interface ListEntity {
-  items: Array<ListItemEntity>;
-  count: number;
-}
